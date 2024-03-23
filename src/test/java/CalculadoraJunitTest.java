@@ -26,10 +26,43 @@ public class CalculadoraJunitTest {
 
     @Test
     public void subtrairDoisNumeros() {
-        Calculadora calc = new Calculadora();
         int subtrair = calc.subtrair(10, 2);
-        System.out.println(subtrair);
         Assertions.assertEquals(8, subtrair);
+
+        //CENÁRIO DE TESTE 1: SUBTRAÇÃO DE DOIS VALORES
+        subtrair = calc.subtrair(3, 7);
+        Assertions.assertEquals(-4, subtrair);
+
+        //CENÁRIO DE TESTE 2: SUBTRAÇÃO DE DOIS VALORES SENDO UM ZERO
+        subtrair = calc.subtrair(3, 0);
+        Assertions.assertEquals(3, subtrair);
+
+        //CENÁRIO DE TESTE 3: SUBTRAÇÃO DE DOIS VALORES SENDO AMBOS SÃO ZERO
+        subtrair = calc.subtrair(0, 0);
+        Assertions.assertEquals(-0, subtrair);
+
+        //CENÁRIO DE TESTE 4: SUBTRAÇÃO DE DOIS VALORES SENDO UM NEGATIVO
+        subtrair = calc.subtrair(3, -1);
+        Assertions.assertEquals(4, subtrair);
+    }
+
+    @Test
+    public void multiplicarDoisNumeros() {
+        //CENÁRIO DE TESTE 1 MULTIPLICAÇÃO DE DOIS VALORES
+        double multiplicacao = calc.multiplicar(3, 7);
+        Assertions.assertEquals(21, multiplicacao);
+
+        //CENÁRIO DE TESTE 2 MULTIPLICAÇÃO DE DOIS VALORES SENDO UM ZERO
+        multiplicacao = calc.multiplicar(3, 0);
+        Assertions.assertEquals(0, multiplicacao);
+
+        //CENÁRIO DE TESTE 3 MULTIPLICAÇÃO, AMBOS SÃO ZERO
+        multiplicacao = calc.multiplicar(0, 0);
+        Assertions.assertEquals(0, multiplicacao);
+
+        //CENÁRIO DE TESTE 4 MULTIPLICAÇÃO DE DOIS VALORES SENDO UM NEGATIVO
+        multiplicacao = calc.multiplicar(3, -1);
+        Assertions.assertEquals(-3, multiplicacao);
     }
 
 }
