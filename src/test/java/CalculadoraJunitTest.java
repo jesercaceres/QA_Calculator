@@ -65,4 +65,23 @@ public class CalculadoraJunitTest {
         Assertions.assertEquals(-3, multiplicacao);
     }
 
+    @Test
+    public void dividirDoisNumeros() {
+        //CENÁRIO DE TESTE 1 DIVISÃO DE DOIS VALORES
+        double divisao = calc.dividir(4, 2);
+        Assertions.assertEquals(2, divisao);
+
+        //CENÁRIO DE TESTE 2: DIVISÃO DE DOIS VALORES SENDO UM ZERO
+        divisao = calc.dividir(3, 0);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, divisao);
+
+        //CENÁRIO DE TESTE 3 DIVISÃO, AMBOS SÃO ZERO
+        divisao = calc.dividir(0, 0);
+        Assertions.assertTrue(Double.isNaN(divisao));
+
+        //CENÁRIO DE TESTE 4 DIVISÃO DE DOIS VALORES SENDO UM NEGATIVO
+        divisao = calc.dividir(3, -1);
+        Assertions.assertEquals(-3, divisao);
+    }
+
 }
